@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   MCBC design system — §5 of docs/mcbc-website-build-spec.md
+
+   This is the ONLY file in the codebase that may contain a hex colour.
+   Everything else references these tokens (bg-ink, text-slate, border-rule…).
+   ========================================================================== */
+
+@theme {
+  /* --- 5.1 Colour ------------------------------------------------------- */
+  --color-ink: #0a1e33; /* primary dark — headers, dark sections, body text */
+  --color-blue: #00274c; /* Michigan Blue — accents and gradients */
+  --color-maize: #ffcb05; /* Michigan Maize — use sparingly, see §5.1 */
+  --color-paper: #ffffff;
+  --color-fog: #f4f5f7; /* alternating section background */
+  --color-slate: #5b6674; /* secondary text, captions — 5.26:1 on fog, AA pass */
+  --color-rule: #e2e5ea; /* hairlines, card borders */
+
+  /* --- 5.2 Typography --------------------------------------------------- */
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --text-display-xl: clamp(2.75rem, 7vw, 5.5rem);
+  --text-display-xl--line-height: 0.98;
+  --text-display-xl--letter-spacing: -0.01em;
+  --text-display-xl--font-weight: 800;
+
+  --text-display-lg: clamp(2rem, 4.5vw, 3.25rem);
+  --text-display-lg--line-height: 1.05;
+  --text-display-lg--letter-spacing: -0.01em;
+  --text-display-lg--font-weight: 800;
+
+  --text-display-md: clamp(1.5rem, 2.5vw, 2rem);
+  --text-display-md--line-height: 1.15;
+  --text-display-md--letter-spacing: -0.01em;
+  --text-display-md--font-weight: 600;
+
+  --text-eyebrow: 0.8125rem;
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.08em;
+  --text-eyebrow--font-weight: 600;
+
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.65;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.7;
+
+  --text-caption: 0.875rem;
+  --text-caption--line-height: 1.5;
+
+  --text-stat: clamp(2.5rem, 5vw, 4rem);
+  --text-stat--line-height: 1;
+  --text-stat--font-weight: 800;
+
+  /* --- 5.3 Layout ------------------------------------------------------- */
+  --container-site: 1200px; /* max-w-site */
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    font-weight: 400;
+  }
+
+  /* Display family + uppercase on every heading (§5.2). Individual headings
+     opt out of the casing with `normal-case` where a literal spelling matters
+     (person names, for instance). */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* §11 — visible focus ring on every interactive element. The maize ring is
+     paired with an ink halo so it stays visible on light backgrounds too;
+     maize alone on paper is ~1.4:1. */
+  :focus-visible {
+    outline: 2px solid var(--color-maize);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--color-ink);
+    border-radius: 2px;
+  }
+
+  /* Firefox still paints a default ring underneath ours. */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+@layer components {
+  /* Body copy measure caps at 65ch (§5.2). */
+  .measure {
+    max-width: 65ch;
+  }
+}
+
+/* ==========================================================================
+   5.4 Motion — three behaviours, no others.
+   All of them are switched off under prefers-reduced-motion at the bottom
+   of this file.
+   ========================================================================== */
+
+/* 1. Scroll reveal.
+   The hidden state is scoped to [data-js], which the inline bootstrap script
+   in app/layout.tsx sets on <html>. If JavaScript never runs, nothing is ever
+   hidden and the page renders in its final state. */
+[data-js] [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 500ms ease-out,
+    transform 500ms ease-out;
+}
+
+[data-js] [data-reveal][data-revealed] {
+  opacity: 1;
+  transform: none;
+}
+
+/* 2. Logo marquee — transform only, never left/margin (§10). */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-duration, 40s) linear infinite;
+}
+
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+/* 3. Stat count-up is driven by StatBand.tsx and guarded there. */
+
+/* Native <details> disclosure marker removal for the FAQ accordion (§6). */
+.accordion summary::-webkit-details-marker {
+  display: none;
+}
+.accordion summary {
+  list-style: none;
+}
+
+/* Scroll-snap gallery (§6) — no carousel library. */
+.snap-row {
+  scrollbar-width: none;
+}
+.snap-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Reduced motion: hard requirement, §5.4 ----------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* Reveal: final state immediately, no transition. */
+  [data-js] [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  /* Marquee: static wrapped grid. */
+  .marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+  .marquee-track > * {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding-right: 0;
+  }
+  .marquee-track [data-marquee-clone] {
+    display: none;
+  }
+  .marquee {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  /* Belt and braces for anything else that sneaks in. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

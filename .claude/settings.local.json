@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(git --version)",
+      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --app --eslint --src-dir=false --import-alias \"@/*\" --yes)",
+      "Bash(npm i *)",
+      "Bash(node -e ' *)",
+      "Bash(node scripts/generate-placeholder-images.mjs)",
+      "Bash(npm run *)",
+      "Bash(grep -i -E \"^\\(instagram|linkedin|menu|x|plus|chevron-left|chevron-right|arrow-right\\)\\\\.mjs$\")",
+      "Bash(cp package.json /tmp/pkg16.json)",
+      "Bash(cp package.json __TRACKED_VAR__/pkg16.json)",
+      "Bash(cp package.json ../pkg16.backup.json)",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/next/package.json'\\).version\\)\")",
+      "Bash(curl -s http://localhost:3000/recruitment)",
+      "Bash(curl -s http://localhost:3000/about)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(npx prettier *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git -c user.name=Claude -c user.email=noreply@anthropic.com commit -q -m ' *)"
+    ]
+  }
+}
