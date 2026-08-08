@@ -100,7 +100,7 @@ export default function FinancePage() {
         </div>
 
         <Container>
-          <p className="text-paper/80 font-display text-eyebrow mt-16 text-center uppercase">
+          <p className="text-paper/80 font-ui text-eyebrow mt-16 text-center uppercase">
             {finance.placementSuffix}
           </p>
         </Container>

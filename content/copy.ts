@@ -17,6 +17,8 @@ export interface Prose {
   intro?: string;
   /** Body paragraphs, in order. */
   paragraphs?: string[];
+  /** Optional background photo for the page header. */
+  image?: string;
 }
 
 export interface Pillar {
@@ -52,7 +54,7 @@ export const home = {
     subhead: site.tagline,
     primary: { label: "Apply Now", href: "/recruitment" },
     secondary: { label: "Learn More", href: "/about" },
-    image: "/images/hero/home.png",
+    image: "/images/hero/home.webp",
     imageAlt: "",
   },
 
@@ -63,7 +65,7 @@ export const home = {
       "Whether students arrive with a clear goal in finance or consulting or are still discovering their interests, MCBC provides the resources, tools, and mentorship to help them make informed career decisions and grow with confidence.",
       "We are based within the Ross School of Business and are a highly selective organization.",
     ],
-    image: "/images/hero/purpose.png",
+    image: "/images/hero/purpose.webp",
     imageAlt: "MCBC members working together at a club meeting",
   },
 
@@ -80,14 +82,14 @@ export const home = {
       body: "Considering a career in consulting? MCBC Strategy sources real projects with local and big-name clients to provide genuine client-facing consulting experience.",
       cta: "Explore MCBC Strategy",
       href: "/strategy",
-      image: "/images/hero/strategy.png",
+      image: "/images/hero/path-strategy.webp",
     },
     {
       title: "Finance",
       body: "Interested in finance? Banking? Private equity? Through hands-on work and elite mentorship, MCBC Finance equips members with the skills to conduct professional financial analysis and ace technical interviews.",
       cta: "Explore MCBC Finance",
       href: "/finance",
-      image: "/images/hero/finance.png",
+      image: "/images/hero/path-finance.webp",
     },
   ] satisfies PathOption[],
 
@@ -120,6 +122,7 @@ export const about = {
       "Since its founding in 2017, Michigan Consulting and Banking Club has been guided by its mission of creating a rich culture of business excellence, collaboration, and impact.",
       "MCBC continues to build upon its past to support students pursuing careers across finance and strategy in an increasingly global business landscape.",
     ],
+    image: "/images/hero/about.webp",
   },
 
   development: {
@@ -196,6 +199,7 @@ export const strategy = {
     paragraphs: [
       "MCBC's consulting initiative immerses members in structured problem-solving environments. Through semester-long client-facing projects, case interview preparation, and team-based engagements, members hone their analytical skills, communication ability, and confidence in a fast-paced consulting environment.",
     ],
+    image: "/images/hero/strategy.webp",
   },
 
   applyIfHeading: "Apply if you like…",
@@ -224,9 +228,9 @@ export const strategy = {
   },
 
   photoStrip: [
-    "/images/gallery/strategy-1.png",
-    "/images/gallery/strategy-2.png",
-    "/images/gallery/strategy-3.png",
+    "/images/gallery/strategy-1.webp",
+    "/images/gallery/strategy-2.webp",
+    "/images/gallery/strategy-3.webp",
   ],
 };
 
@@ -241,6 +245,7 @@ export const finance = {
     paragraphs: [
       "MCBC's finance initiative centers on understanding how businesses and markets interact. Members leverage financial analysis, market research, and predictive models to evaluate opportunities, assess risk, and formulate data-driven investment decisions. Members can expect to hone the skills needed for careers in investing, banking, and corporate finance.",
     ],
+    image: "/images/hero/finance.webp",
   },
 
   applyIfHeading: "Apply if you like…",
@@ -269,9 +274,9 @@ export const finance = {
   },
 
   photoStrip: [
-    "/images/gallery/finance-1.png",
-    "/images/gallery/finance-2.png",
-    "/images/gallery/finance-3.png",
+    "/images/gallery/finance-1.webp",
+    "/images/gallery/finance-2.webp",
+    "/images/gallery/finance-3.webp",
   ],
 };
 
@@ -287,6 +292,7 @@ export const recruitment = {
       "Our fall recruitment schedule will be posted as the fall semester approaches.",
       `We appreciate your interest in MCBC and encourage you to reach out to ${site.email} with any recruitment-related questions.`,
     ],
+    image: "/images/hero/recruitment.webp",
   },
 
   faqsHeading: "FAQs",
@@ -327,7 +333,7 @@ export const a11y = {
 export const gallery: { src: string; alt: string }[] = Array.from(
   { length: 17 },
   (_, i) => ({
-    src: `/images/gallery/community-${String(i + 1).padStart(2, "0")}.png`,
+    src: `/images/gallery/community-${String(i + 1).padStart(2, "0")}.webp`,
     alt: "",
   }),
 );

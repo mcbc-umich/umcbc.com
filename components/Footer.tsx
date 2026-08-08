@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { nav, site, socials } from "@/content/site";
 
@@ -13,12 +14,15 @@ export default function Footer() {
       <div className="max-w-site mx-auto w-full px-6 py-16 lg:px-12">
         <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
           <div>
-            {/* TODO [§9] — replace this wordmark with the club logo as SVG
-                once it has been sourced from the Wix media manager. */}
-            <p className="font-display text-3xl font-extrabold tracking-tight uppercase">
-              {site.abbreviation}
-            </p>
-            <p className="font-display text-eyebrow mt-3 uppercase">
+            <Image
+              src="/images/logo/mcbc-white.png"
+              alt=""
+              width={512}
+              height={512}
+              sizes="64px"
+              className="h-16 w-auto"
+            />
+            <p className="font-ui text-eyebrow mt-4 uppercase">
               {site.displayName}
             </p>
             <p className="text-paper/70 text-caption mt-6">
@@ -40,7 +44,7 @@ export default function Footer() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="font-display text-eyebrow hover:text-maize uppercase"
+                      className="font-ui text-eyebrow hover:text-maize uppercase"
                     >
                       {item.label}
                     </Link>

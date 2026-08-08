@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Archivo, Public_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -9,20 +8,6 @@ import { a11y } from "@/content/copy";
 import { site, socials } from "@/content/site";
 
 import "./globals.css";
-
-// Both families are variable and self-hosted at build time (§5.2). Only
-// weights 600/800 (display) and 400/600 (body) are ever used — see globals.css.
-const archivo = Archivo({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-archivo",
-});
-
-const publicSans = Public_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-public-sans",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -143,14 +128,14 @@ export default function RootLayout({
       // The bootstrap script below stamps data-js on <html> before React
       // hydrates, which is the whole point of it — so the mismatch is expected.
       suppressHydrationWarning
-      className={`${archivo.variable} ${publicSans.variable} h-full antialiased`}
+      className="h-full antialiased"
     >
       <body className="flex min-h-full flex-col">
         <script dangerouslySetInnerHTML={{ __html: revealScript }} />
 
         <a
           href="#main"
-          className="bg-maize text-ink font-display text-eyebrow sr-only uppercase focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-5 focus:py-3"
+          className="bg-maize text-ink font-ui text-eyebrow sr-only uppercase focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-5 focus:py-3"
         >
           {a11y.skipToContent}
         </a>

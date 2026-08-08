@@ -15,7 +15,7 @@ export interface ButtonProps {
 }
 
 const base =
-  "inline-flex items-center justify-center gap-2 px-7 py-3.5 font-display text-eyebrow uppercase transition-colors duration-200 motion-reduce:transition-none";
+  "inline-flex items-center justify-center gap-2 px-7 py-3.5 font-ui text-eyebrow uppercase transition-colors duration-200 motion-reduce:transition-none";
 
 const variants: Record<ButtonVariant, { light: string; dark: string }> = {
   // Maize on ink — the primary CTA, one of the four sanctioned maize uses.

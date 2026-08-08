@@ -43,11 +43,14 @@ export default function LogoMarquee({ firms }: { firms: Firm[] }) {
                     alt={firm.name}
                     width={firm.width}
                     height={firm.height}
-                    sizes="160px"
-                    className="h-8 w-auto opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 motion-reduce:transition-none"
+                    sizes="180px"
+                    // Contained rather than height-matched: the marks range
+                    // from near-square (Datadog) to very wide (Oliver Wyman),
+                    // so capping both axes keeps them optically similar.
+                    className="h-12 w-auto max-w-[180px] object-contain opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 motion-reduce:transition-none"
                   />
                 ) : (
-                  <span className="text-paper/70 font-display hover:text-paper text-xl font-semibold tracking-tight whitespace-nowrap uppercase transition-colors duration-300 motion-reduce:transition-none">
+                  <span className="text-paper/70 font-ui hover:text-paper text-xl font-semibold tracking-tight whitespace-nowrap uppercase transition-colors duration-300 motion-reduce:transition-none">
                     {firm.name}
                   </span>
                 )}

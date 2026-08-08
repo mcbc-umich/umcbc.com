@@ -1,25 +1,27 @@
 /**
  * Placement marks for the Industry Connections marquee (§5.5).
  *
- * ============================ READ THIS FIRST ============================
- * TODO — THIS LIST IS A PLACEHOLDER AND MUST NOT SHIP AS-IS.
+ * Imported from the Wix mockup, which is the only place this list exists.
+ * Order follows the mockup.
  *
- * Neither source site gave a firm list that could be transcribed, and naming
- * a firm here is a public claim that an MCBC member placed there. So the
- * entries below are deliberately obvious placeholders rather than invented
- * company names. Replace every one with a firm the board can actually
- * stand behind, and delete any left over.
+ * TODO [§9] — CONFIRM THIS LIST BEFORE LAUNCH. Showing a company's mark next
+ * to "our alumni go on to work at the top firms" is a public claim that an
+ * MCBC member actually placed there, and displaying a logo can imply
+ * endorsement or partnership that does not exist. Every mark here should be
+ * one the board can stand behind. If there is any doubt, drop the `logo` line
+ * for that firm and it renders as a plain wordmark instead — lower risk, and
+ * it still reads well in the marquee.
  *
- * Two things to decide while you do that (§9):
+ * Two things already fixed on the way in:
+ *  - The mockup carries two different "Citadel" marks: the hedge fund, and
+ *    The Citadel, the military college in South Carolina. Only the former is
+ *    here.
+ *  - Chartis and Old Mission Capital each appeared twice. De-duplicated.
  *
- * 1. Marks vs. names. Displaying a company's logo can imply endorsement or
- *    partnership. Leaving `logo` unset renders the firm's name as a
- *    monochrome wordmark instead — lower risk, and it still reads well in
- *    the marquee. That is the recommended default.
- * 2. If you do use marks, put an SVG (or a 2x transparent PNG) in
- *    public/images/firms/ and set `logo` to its path plus the real pixel
- *    dimensions of the file.
- * =========================================================================
+ * Note the marks are not visually consistent — several have an opaque black
+ * or coloured rectangle baked into the image rather than a transparent
+ * background. The marquee renders them greyscale at rest, which hides most of
+ * it, but clean transparent versions would look better.
  */
 
 export interface Firm {
@@ -34,14 +36,116 @@ export interface Firm {
 }
 
 export const firms: Firm[] = [
-  { name: "[FIRM 01]" },
-  { name: "[FIRM 02]" },
-  { name: "[FIRM 03]" },
-  { name: "[FIRM 04]" },
-  { name: "[FIRM 05]" },
-  { name: "[FIRM 06]" },
-  { name: "[FIRM 07]" },
-  { name: "[FIRM 08]" },
-  { name: "[FIRM 09]" },
-  { name: "[FIRM 10]" },
+  { name: "PwC", logo: "/images/firms/pwc.webp", width: 227, height: 128 },
+  {
+    name: "Goldman Sachs",
+    logo: "/images/firms/goldman-sachs.webp",
+    width: 305,
+    height: 128,
+  },
+  { name: "Cisco", logo: "/images/firms/cisco.webp", width: 225, height: 128 },
+  {
+    name: "Bain & Company",
+    logo: "/images/firms/bain.webp",
+    width: 320,
+    height: 97,
+  },
+  {
+    name: "Capital One",
+    logo: "/images/firms/capital-one.webp",
+    width: 204,
+    height: 128,
+  },
+  {
+    name: "Kraft Heinz",
+    logo: "/images/firms/kraft-heinz.webp",
+    width: 320,
+    height: 54,
+  },
+  {
+    name: "Datadog",
+    logo: "/images/firms/datadog.webp",
+    width: 128,
+    height: 128,
+  },
+  {
+    name: "Amazon",
+    logo: "/images/firms/amazon.webp",
+    width: 320,
+    height: 121,
+  },
+  {
+    name: "Chicago Trading Company",
+    logo: "/images/firms/ctc.webp",
+    width: 275,
+    height: 128,
+  },
+  {
+    name: "Morgan Stanley",
+    logo: "/images/firms/morgan-stanley.webp",
+    width: 320,
+    height: 47,
+  },
+  {
+    name: "Old Mission Capital",
+    logo: "/images/firms/old-mission-capital.webp",
+    width: 128,
+    height: 128,
+  },
+  {
+    name: "Verizon",
+    logo: "/images/firms/verizon.webp",
+    width: 320,
+    height: 90,
+  },
+  {
+    name: "Johnson & Johnson",
+    logo: "/images/firms/johnson-and-johnson.webp",
+    width: 128,
+    height: 128,
+  },
+  {
+    name: "Oliver Wyman",
+    logo: "/images/firms/oliver-wyman.webp",
+    width: 320,
+    height: 38,
+  },
+  {
+    name: "Deloitte",
+    logo: "/images/firms/deloitte.webp",
+    width: 261,
+    height: 128,
+  },
+  {
+    name: "Chartis",
+    logo: "/images/firms/chartis.webp",
+    width: 245,
+    height: 128,
+  },
+  { name: "KPMG", logo: "/images/firms/kpmg.webp", width: 303, height: 128 },
+  {
+    name: "Rocket",
+    logo: "/images/firms/rocket.webp",
+    width: 227,
+    height: 128,
+  },
+  {
+    name: "Plante Moran",
+    logo: "/images/firms/plante-moran.webp",
+    width: 228,
+    height: 128,
+  },
+  {
+    name: "Guggenheim",
+    logo: "/images/firms/guggenheim.webp",
+    width: 228,
+    height: 128,
+  },
+  { name: "MUFG", logo: "/images/firms/mufg.webp", width: 320, height: 75 },
+  {
+    name: "Citadel",
+    logo: "/images/firms/citadel.webp",
+    width: 128,
+    height: 128,
+  },
 ];

@@ -21,7 +21,7 @@ export default function PathCard({ path }: { path: PathOption }) {
         <p className="text-slate measure mt-4">{path.body}</p>
         <Link
           href={path.href}
-          className="font-display text-eyebrow group-hover:text-blue mt-8 inline-flex items-center gap-2 uppercase"
+          className="font-ui text-eyebrow group-hover:text-blue mt-8 inline-flex items-center gap-2 uppercase"
         >
           {path.cta}
           <ArrowRight

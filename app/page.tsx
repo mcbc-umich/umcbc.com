@@ -91,7 +91,7 @@ export default function HomePage() {
         </div>
 
         <Container>
-          <p className="font-display text-eyebrow text-paper/80 mt-16 text-center uppercase">
+          <p className="font-ui text-eyebrow text-paper/80 mt-16 text-center uppercase">
             {home.placementClaim}
           </p>
         </Container>

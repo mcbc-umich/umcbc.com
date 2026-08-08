@@ -81,7 +81,7 @@ export default function StrategyPage() {
         </div>
 
         <Container>
-          <p className="text-paper/80 font-display text-eyebrow mt-16 text-center uppercase">
+          <p className="text-paper/80 font-ui text-eyebrow mt-16 text-center uppercase">
             {strategy.placementSuffix}
           </p>
         </Container>

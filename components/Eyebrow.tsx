@@ -21,7 +21,7 @@ export default function Eyebrow({
     <div className={`mb-5 ${className}`}>
       {children ? (
         <p
-          className={`font-display text-eyebrow uppercase ${
+          className={`font-ui text-eyebrow uppercase ${
             onDark ? "text-paper" : "text-slate"
           }`}
         >

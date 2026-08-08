@@ -101,8 +101,8 @@ Delete the whole block from `{` to `},`.
 3. In `people.ts`, set their photo line to:
    `photo: "/images/people/jane-chen.jpg",`
 
-Leaving `photo: ""` is fine — the card shows their initials instead. That's how
-the site ships today, because we don't have club photos yet.
+Leaving `photo: ""` is fine — the card shows their initials instead. Renzo
+Silva is the only person set that way today.
 
 ### Change a paragraph
 
@@ -185,10 +185,12 @@ couldn't answer and nobody should guess at:
   experience" number should be
 - Whether it's 50+ or 60+ active members (the homepage and About page disagree)
 - The correct spelling of every name and class year
+- Whether every headshot is beside the right name (they were matched from the
+  old site by position, not by label)
 - Missing LinkedIn URLs, and whether Energy really has two desk heads
 - Whether "220+ Alumni · 100% Full-Time Placement" is defensible
 - Board sign-off on the four About-page pillar blurbs and the Strategy
   placement line, which were drafted rather than transcribed
-- The real firm list for the homepage scroller
+- Whether every firm in the homepage scroller is one the board can stand behind
 
 The full detail on each is in `docs/mcbc-website-build-spec.md`, section 15.

@@ -2,12 +2,23 @@
  * Everyone the site lists: executive board, senior advisors, desk heads and
  * project managers.
  *
- * PHOTOS: `photo` is a path under /public/images/people/, e.g.
- * "/images/people/daniel-xiao.jpg". It is intentionally left as "" for
- * everyone right now — the club photos have not been exported from the old
- * sites yet (§9 is a human step). A card with no photo renders an initials
- * monogram instead, which is a deliberate fallback rather than a broken image.
- * Drop a square 600x600 file into public/images/people/ and fill in the path.
+ * PHOTOS: headshots were imported from the Wix mockup and live in
+ * /public/images/people/ at 600x600. Setting `photo` to "" renders an initials
+ * monogram instead of a broken image, which is what Renzo Silva has today.
+ *
+ * TODO [PHOTOS] — CHECK EVERY FACE AGAINST EVERY NAME BEFORE LAUNCH.
+ * The Wix page markup does not label its headshots, so each photo was matched
+ * to a person by its position in the page: the board is interleaved
+ * (photo, name, photo, name), while the project managers and desk heads are
+ * rendered as a block of photos followed by a block of names. That inference
+ * is sound but it is an inference, and putting the wrong face beside a name is
+ * more embarrassing than misspelling it. Ten minutes with the live mockup
+ * side by side clears it.
+ *
+ * Renzo Silva has no photo because the mockup uses one image — "mcbc.jpg" —
+ * for both him and Daniel Xiao. It is a photo of one specific person, so it
+ * cannot be right for both. It is assigned to Daniel here, since on the About
+ * page it sits directly against his name. Confirm, and get Renzo a headshot.
  *
  * TODO [§15.3] — EVERY NAME AND CLASS YEAR MUST BE CONFIRMED BY A PERSON
  * BEFORE LAUNCH. The two source sites disagree on several spellings
@@ -33,35 +44,35 @@ export const people: Person[] = [
     role: "President",
     group: "board",
     linkedin: "https://www.linkedin.com/in/xiaodaniel",
-    photo: "",
+    photo: "/images/people/daniel-xiao.webp",
   },
   {
     name: "Felicia Zhongzhang",
     role: "Director of Strategy",
     group: "board",
     linkedin: "https://www.linkedin.com/in/felicia-zhongzhang",
-    photo: "",
+    photo: "/images/people/felicia-zhongzhang.webp",
   },
   {
     name: "Suki Zhao",
     role: "Director of Internal",
     group: "board",
     linkedin: "https://www.linkedin.com/in/suki-zhao-716451265",
-    photo: "",
+    photo: "/images/people/suki-zhao.webp",
   },
   {
     name: "Amelia Kayi",
     role: "Director of Recruiting",
     group: "board",
     linkedin: "https://www.linkedin.com/in/amelia-kayi",
-    photo: "",
+    photo: "/images/people/amelia-kayi.webp",
   },
   {
     name: "Jason Moy",
     role: "Director of External",
     group: "board",
     linkedin: "https://www.linkedin.com/in/jason-moy-132371201",
-    photo: "",
+    photo: "/images/people/jason-moy.webp",
   },
 
   // --- Senior advisors (§7.2) ---
@@ -71,7 +82,7 @@ export const people: Person[] = [
     group: "advisor",
     detail: "BBA 2027",
     linkedin: "https://www.linkedin.com/in/angelie-xu",
-    photo: "",
+    photo: "/images/people/angie-xu.webp",
   },
   {
     name: "Barry Wang",
@@ -79,7 +90,7 @@ export const people: Person[] = [
     group: "advisor",
     detail: "BBA 2027",
     linkedin: "https://www.linkedin.com/in/barrywang73",
-    photo: "",
+    photo: "/images/people/barry-wang.webp",
   },
   {
     name: "Jen Li",
@@ -87,7 +98,7 @@ export const people: Person[] = [
     group: "advisor",
     detail: "BBA 2027",
     linkedin: "https://www.linkedin.com/in/jjenlii",
-    photo: "",
+    photo: "/images/people/jen-li.webp",
   },
   {
     name: "Abhinav Ramanathan",
@@ -95,7 +106,7 @@ export const people: Person[] = [
     group: "advisor",
     detail: "Computer Engineering 2027",
     linkedin: "https://www.linkedin.com/in/abhinav-ramanathan",
-    photo: "",
+    photo: "/images/people/abhinav-ramanathan.webp",
   },
   {
     name: "Leah Zhou",
@@ -103,7 +114,7 @@ export const people: Person[] = [
     group: "advisor",
     detail: "BBA 2027",
     linkedin: "https://www.linkedin.com/in/leahezhou",
-    photo: "",
+    photo: "/images/people/leah-zhou.webp",
   },
   {
     name: "Alexander Zhang",
@@ -111,7 +122,7 @@ export const people: Person[] = [
     group: "advisor",
     detail: "Computer Science 2027",
     linkedin: "https://www.linkedin.com/in/alexyz1",
-    photo: "",
+    photo: "/images/people/alexander-zhang.webp",
   },
   {
     name: "Jonathan Song",
@@ -119,7 +130,7 @@ export const people: Person[] = [
     group: "advisor",
     detail: "BBA & CS 2028",
     linkedin: "https://www.linkedin.com/in/jonathan-j-song",
-    photo: "",
+    photo: "/images/people/jonathan-song.webp",
   },
   {
     name: "Erika Yee",
@@ -127,7 +138,7 @@ export const people: Person[] = [
     group: "advisor",
     detail: "BBA 2028",
     linkedin: "https://www.linkedin.com/in/yee-erika",
-    photo: "",
+    photo: "/images/people/erika-yee.webp",
   },
   {
     name: "Celina Du",
@@ -135,7 +146,7 @@ export const people: Person[] = [
     group: "advisor",
     detail: "BBA & CS & Asian Studies 2028",
     linkedin: "https://www.linkedin.com/in/celinadu",
-    photo: "",
+    photo: "/images/people/celina-du.webp",
   },
   {
     name: "Michael Zheng",
@@ -143,7 +154,7 @@ export const people: Person[] = [
     group: "advisor",
     detail: "BBA 2028",
     linkedin: "https://www.linkedin.com/in/michael-z-zheng",
-    photo: "",
+    photo: "/images/people/michael-zheng.webp",
   },
   {
     name: "Josh Li",
@@ -151,7 +162,7 @@ export const people: Person[] = [
     group: "advisor",
     detail: "Data Science 2028",
     linkedin: "https://www.linkedin.com/in/manuli1212",
-    photo: "",
+    photo: "/images/people/josh-li.webp",
   },
 
   // --- Strategy project managers (§7.3) ---
@@ -160,7 +171,7 @@ export const people: Person[] = [
     role: "Project Manager",
     group: "project-manager",
     linkedin: "https://www.linkedin.com/in/tom-zionede-hall-97226334b",
-    photo: "",
+    photo: "/images/people/tomas-hall.webp",
   },
   {
     name: "Ascher Bustos",
@@ -168,21 +179,21 @@ export const people: Person[] = [
     group: "project-manager",
     // TODO [§15.4] — no LinkedIn URL exists in either source site. Ask him
     // for it, then add: linkedin: "https://www.linkedin.com/in/…"
-    photo: "",
+    photo: "/images/people/ascher-bustos.webp",
   },
   {
     name: "Sean Gretzinger",
     role: "Project Manager",
     group: "project-manager",
     linkedin: "https://www.linkedin.com/in/sean-gretzinger",
-    photo: "",
+    photo: "/images/people/sean-gretzinger.webp",
   },
   {
     name: "Rayhan Zahin",
     role: "Project Manager",
     group: "project-manager",
     linkedin: "https://www.linkedin.com/in/rayhan-zahin",
-    photo: "",
+    photo: "/images/people/rayhan-zahin.webp",
   },
 
   // --- Finance desk heads (§7.4) — sector assignments follow the Wix site ---
@@ -192,7 +203,7 @@ export const people: Person[] = [
     group: "desk-head",
     detail: "Consumer",
     // TODO [§15.4] — LinkedIn URL missing from both source sites.
-    photo: "",
+    photo: "/images/people/ashley-liao.webp",
   },
   {
     name: "Kyle Cui",
@@ -200,7 +211,7 @@ export const people: Person[] = [
     group: "desk-head",
     detail: "Industrial",
     linkedin: "https://www.linkedin.com/in/kyle-cui-977913315",
-    photo: "",
+    photo: "/images/people/kyle-cui.webp",
   },
   {
     name: "Jacob Benninger",
@@ -208,7 +219,7 @@ export const people: Person[] = [
     group: "desk-head",
     detail: "TMT",
     linkedin: "https://www.linkedin.com/in/jacob-benninger-26716821b",
-    photo: "",
+    photo: "/images/people/jacob-benninger.webp",
   },
   {
     name: "Renzo Silva",
@@ -224,7 +235,7 @@ export const people: Person[] = [
     group: "desk-head",
     detail: "Prediction Market",
     linkedin: "https://www.linkedin.com/in/lily-graham-b84151320",
-    photo: "",
+    photo: "/images/people/lily-graham.webp",
   },
   // TODO [§15.4] — Alex Ye and Michael Zhang are BOTH listed as the Energy
   // desk head on the Wix site. Confirm whether that is a genuine co-head
@@ -235,14 +246,14 @@ export const people: Person[] = [
     role: "Desk Head",
     group: "desk-head",
     detail: "Energy",
-    photo: "",
+    photo: "/images/people/alex-ye.webp",
   },
   {
     name: "Michael Zhang",
     role: "Desk Head",
     group: "desk-head",
     detail: "Energy",
-    photo: "",
+    photo: "/images/people/michael-zhang.webp",
   },
   {
     name: "Tommy Lu",
@@ -250,7 +261,7 @@ export const people: Person[] = [
     group: "desk-head",
     detail: "Healthcare",
     // TODO [§15.4] — LinkedIn URL missing from both source sites.
-    photo: "",
+    photo: "/images/people/tommy-lu.webp",
   },
 ];
 

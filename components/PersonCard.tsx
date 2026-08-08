@@ -29,7 +29,7 @@ export default function PersonCard({ person }: { person: Person }) {
           // Deliberate fallback until club photos are exported (§9).
           <span
             aria-hidden="true"
-            className="text-slate font-display absolute inset-0 flex items-center justify-center text-3xl font-extrabold"
+            className="text-slate font-ui absolute inset-0 flex items-center justify-center text-3xl font-extrabold"
           >
             {initials(person.name)}
           </span>

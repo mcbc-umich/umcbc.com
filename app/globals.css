@@ -17,29 +17,39 @@
   --color-slate: #5b6674; /* secondary text, captions — 5.26:1 on fog, AA pass */
   --color-rule: #e2e5ea; /* hairlines, card borders */
 
-  /* --- 5.2 Typography --------------------------------------------------- */
-  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
+  /* --- 5.2 Typography ---------------------------------------------------
+     Matched to the Wix mockup, which sets Georgia for headings and prose and
+     Helvetica for small uppercase UI labels.
 
+     Both are system font stacks, so nothing is downloaded: no render-blocking
+     font request, no layout shift, and no licensing problem. Wix serves its
+     Helvetica and Univers as licensed webfonts we could not redistribute even
+     if we wanted to; the stack below is the standard equivalent and renders
+     identically on machines that have Helvetica or Arial, which is all of
+     them. This replaces the spec's Archivo / Public Sans (§5.2) at the
+     board's request. */
+  --font-display: Georgia, Palatino, "Book Antiqua", "Palatino Linotype", serif;
+  --font-body: Georgia, Palatino, "Book Antiqua", "Palatino Linotype", serif;
+  --font-ui: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* Georgia ships regular and bold only — no 600/800 — so the display sizes
+     use 400, which is also the weight the mockup sets on its headings. */
   --text-display-xl: clamp(2.75rem, 7vw, 5.5rem);
-  --text-display-xl--line-height: 0.98;
-  --text-display-xl--letter-spacing: -0.01em;
-  --text-display-xl--font-weight: 800;
+  --text-display-xl--line-height: 1.02;
+  --text-display-xl--font-weight: 400;
 
   --text-display-lg: clamp(2rem, 4.5vw, 3.25rem);
-  --text-display-lg--line-height: 1.05;
-  --text-display-lg--letter-spacing: -0.01em;
-  --text-display-lg--font-weight: 800;
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--font-weight: 400;
 
   --text-display-md: clamp(1.5rem, 2.5vw, 2rem);
-  --text-display-md--line-height: 1.15;
-  --text-display-md--letter-spacing: -0.01em;
-  --text-display-md--font-weight: 600;
+  --text-display-md--line-height: 1.2;
+  --text-display-md--font-weight: 400;
 
   --text-eyebrow: 0.8125rem;
   --text-eyebrow--line-height: 1.2;
-  --text-eyebrow--letter-spacing: 0.08em;
-  --text-eyebrow--font-weight: 600;
+  --text-eyebrow--letter-spacing: 0.1em;
+  --text-eyebrow--font-weight: 700;
 
   --text-body-lg: 1.125rem;
   --text-body-lg--line-height: 1.65;
@@ -52,7 +62,7 @@
 
   --text-stat: clamp(2.5rem, 5vw, 4rem);
   --text-stat--line-height: 1;
-  --text-stat--font-weight: 800;
+  --text-stat--font-weight: 400;
 
   /* --- 5.3 Layout ------------------------------------------------------- */
   --container-site: 1200px; /* max-w-site */

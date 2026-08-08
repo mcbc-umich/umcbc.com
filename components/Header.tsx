@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -94,12 +95,16 @@ export default function Header() {
       }`}
     >
       <div className="max-w-site mx-auto flex h-20 w-full items-center justify-between px-6 lg:px-12">
-        <Link
-          href="/"
-          className="text-paper font-display text-xl font-extrabold tracking-tight uppercase"
-        >
-          {site.abbreviation}
-          <span className="sr-only"> — {site.name} home</span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/images/logo/mcbc-white.png"
+            alt={`${site.name} home`}
+            width={512}
+            height={512}
+            priority
+            sizes="48px"
+            className="h-12 w-auto"
+          />
         </Link>
 
         <nav aria-label={a11y.primaryNav} className="hidden lg:block">
@@ -109,7 +114,7 @@ export default function Header() {
                 <Link
                   href={item.href}
                   aria-current={isCurrent(item.href) ? "page" : undefined}
-                  className="text-paper font-display text-eyebrow after:bg-maize relative uppercase after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:transition-[width] after:duration-200 hover:after:w-full aria-[current=page]:after:w-full motion-reduce:after:transition-none"
+                  className="text-paper font-ui text-eyebrow after:bg-maize relative uppercase after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:transition-[width] after:duration-200 hover:after:w-full aria-[current=page]:after:w-full motion-reduce:after:transition-none"
                 >
                   {item.label}
                 </Link>
@@ -118,7 +123,7 @@ export default function Header() {
             <li>
               <Link
                 href="/recruitment"
-                className="bg-maize text-ink font-display text-eyebrow hover:bg-paper px-5 py-2.5 uppercase transition-colors duration-200 motion-reduce:transition-none"
+                className="bg-maize text-ink font-ui text-eyebrow hover:bg-paper px-5 py-2.5 uppercase transition-colors duration-200 motion-reduce:transition-none"
               >
                 {a11y.applyCta}
               </Link>
@@ -158,7 +163,7 @@ export default function Header() {
                   <Link
                     href={item.href}
                     aria-current={isCurrent(item.href) ? "page" : undefined}
-                    className="text-paper font-display border-rule/20 aria-[current=page]:text-maize block border-b py-4 text-2xl uppercase"
+                    className="text-paper font-ui border-rule/20 aria-[current=page]:text-maize block border-b py-4 text-2xl uppercase"
                   >
                     {item.label}
                   </Link>
@@ -167,7 +172,7 @@ export default function Header() {
               <li className="pt-6">
                 <Link
                   href="/recruitment"
-                  className="bg-maize text-ink font-display text-eyebrow block px-6 py-4 text-center uppercase"
+                  className="bg-maize text-ink font-ui text-eyebrow block px-6 py-4 text-center uppercase"
                 >
                   {a11y.applyCta}
                 </Link>

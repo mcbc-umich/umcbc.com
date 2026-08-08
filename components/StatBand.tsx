@@ -74,7 +74,7 @@ export default function StatBand({ stats }: StatBandProps) {
               {Math.round(stat.value * progress)}
               {stat.suffix}
             </p>
-            <p className="text-paper/70 font-display text-eyebrow mt-3 uppercase">
+            <p className="text-paper/70 font-ui text-eyebrow mt-3 uppercase">
               <span className="sr-only">{final} — </span>
               {stat.label}
             </p>

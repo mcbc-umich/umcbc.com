@@ -1,9 +1,16 @@
 /**
  * The seven MCBC Finance investment sectors (§7.4).
  *
- * `image` is a path under /public/images/sectors/. Placeholder artwork ships
- * with the repo so the grid renders; swap in real photography by replacing
- * the files, keeping the same names.
+ * `image` is a path under /public/images/sectors/, imported from the Wix
+ * mockup and matched to each sector by what the photo actually shows.
+ * Prediction Market is deliberately empty — the mockup ships six sector
+ * photos for seven sectors, so one was always going to be missing. An empty
+ * string renders a plain tinted panel rather than a broken image.
+ *
+ * TODO [LICENSING] — two of these arrived as stock-library preview files: an
+ * Adobe Stock "360_F_…" image for Healthcare and a Shutterstock "…260nw…"
+ * image for Industrials. Confirm the club holds a licence for those two or
+ * replace them. Consumer Goods (Pexels) and TMT (Unsplash) are free to use.
  */
 
 export interface Sector {
@@ -16,36 +23,36 @@ export const sectors: Sector[] = [
   {
     name: "Consumer Goods",
     industries: "Electronics, Packaging, Retail",
-    image: "/images/sectors/consumer-goods.png",
+    image: "/images/sectors/consumer-goods.webp",
   },
   {
     name: "Energy",
     industries: "Green Energy, Oil & Gas, Distribution",
-    image: "/images/sectors/energy.png",
+    image: "/images/sectors/energy.webp",
   },
   {
     name: "Healthcare",
     industries: "Pharmacy, Biotech, Equipment",
-    image: "/images/sectors/healthcare.png",
+    image: "/images/sectors/healthcare.webp",
   },
   {
     name: "TMT",
     industries: "Software, Hardware, Telecom, Media, Fintech",
-    image: "/images/sectors/tmt.png",
+    image: "/images/sectors/tmt.webp",
   },
   {
     name: "Industrials",
     industries: "Industrials & Manufacturing",
-    image: "/images/sectors/industrials.png",
+    image: "/images/sectors/industrials.webp",
   },
   {
     name: "Prediction Market",
     industries: "Quant-Based Odds & Forecasting",
-    image: "/images/sectors/prediction-market.png",
+    image: "",
   },
   {
     name: "FIG",
     industries: "Financial Firms & Commercial Banks",
-    image: "/images/sectors/fig.png",
+    image: "/images/sectors/fig.webp",
   },
 ];
