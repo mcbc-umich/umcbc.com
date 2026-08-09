@@ -6,7 +6,7 @@ import PersonGrid from "@/components/PersonGrid";
 import PhotoGallery from "@/components/PhotoGallery";
 import Section from "@/components/Section";
 import { about, gallery } from "@/content/copy";
-import { advisors, board } from "@/content/people";
+import { advisors, board, members } from "@/content/people";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -101,7 +101,15 @@ export default function AboutPage() {
         <PersonGrid id="board" heading={about.boardHeading} people={board} />
       </Section>
 
-      <Section labelledBy="advisors">
+      <Section labelledBy="members">
+        <PersonGrid
+          id="members"
+          heading={about.membersHeading}
+          people={members}
+        />
+      </Section>
+
+      <Section background="fog" labelledBy="advisors">
         <PersonGrid
           id="advisors"
           heading={about.advisorsHeading}

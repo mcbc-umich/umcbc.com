@@ -185,6 +185,7 @@ export const about = {
   },
 
   boardHeading: "Executive Board",
+  membersHeading: "Members",
   advisorsHeading: "Senior Advisors",
 };
 

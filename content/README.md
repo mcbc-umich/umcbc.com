@@ -24,7 +24,7 @@ what it _says_. You almost never need the first kind.
 | ---------------- | --------------------------------------------------------------------------- |
 | `site.ts`        | Club name, contact email, the menu, social links, the two Google Form links |
 | `copy.ts`        | All the paragraphs. Every page's text is in here                            |
-| `people.ts`      | Board, senior advisors, desk heads, project managers                        |
+| `people.ts`      | Board, members, senior advisors, desk heads, project managers               |
 | `stats.ts`       | The four big numbers on the homepage                                        |
 | `sectors.ts`     | The seven Finance investment sectors                                        |
 | `engagements.ts` | "Past Engagements" and "Apply if you like…" bullet lists                    |
@@ -78,7 +78,7 @@ and the word before the colon exactly as they are.
   or "Desk Head"; the thing shown under their name is `detail`.
 - `detail` — "BBA 2027" for an advisor, or the desk name like "TMT".
 - `group` — which grid they appear in. Must be exactly one of `board`,
-  `advisor`, `desk-head`, `project-manager`.
+  `advisor`, `member`, `desk-head`, `project-manager`.
 - `linkedin` — the full address starting with `https://`. If they don't have
   one, delete that whole line and no icon will show.
 
@@ -101,8 +101,12 @@ Delete the whole block from `{` to `},`.
 3. In `people.ts`, set their photo line to:
    `photo: "/images/people/jane-chen.jpg",`
 
-Leaving `photo: ""` is fine — the card shows their initials instead. Renzo
-Silva is the only person set that way today.
+Leaving `photo: ""` is fine — the card shows their initials instead. Everyone
+in the Members group, plus Sky Ni and Renzo Silva, is set that way today: their
+headshots are on the old Google Site but Google serves them from short-lived
+signed links that cannot be downloaded automatically. To fix one, open
+umcbc.com/our-team, right-click the photo, **Save image as**, then follow the
+three steps above.
 
 ### Change a paragraph
 
@@ -134,9 +138,8 @@ automatically. Same for the two Google Form links under `forms`.
 
 Open `firms.ts` and add a line: `{ name: "Firm Name" },`
 
-Read the note at the top of that file first — the list that ships today is
-placeholder text and needs replacing, and there's a judgement call about names
-vs. logos.
+Read the note at the top of that file first — there is a judgement call about
+whether to show a firm's logo at all.
 
 ### Add or change a menu item
 
@@ -192,5 +195,7 @@ couldn't answer and nobody should guess at:
 - Board sign-off on the four About-page pillar blurbs and the Strategy
   placement line, which were drafted rather than transcribed
 - Whether every firm in the homepage scroller is one the board can stand behind
+- Which titles the people in the Members group actually hold now — the old site
+  gives several of them board titles that clash with the current board
 
 The full detail on each is in `docs/mcbc-website-build-spec.md`, section 15.

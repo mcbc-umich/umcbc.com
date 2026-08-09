@@ -135,7 +135,7 @@ export default function RootLayout({
 
         <a
           href="#main"
-          className="bg-maize text-ink font-ui text-eyebrow sr-only uppercase focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-5 focus:py-3"
+          className="bg-ink text-paper font-ui text-eyebrow sr-only uppercase focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-5 focus:py-3"
         >
           {a11y.skipToContent}
         </a>

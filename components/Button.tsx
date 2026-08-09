@@ -18,10 +18,10 @@ const base =
   "inline-flex items-center justify-center gap-2 px-7 py-3.5 font-ui text-eyebrow uppercase transition-colors duration-200 motion-reduce:transition-none";
 
 const variants: Record<ButtonVariant, { light: string; dark: string }> = {
-  // Maize on ink — the primary CTA, one of the four sanctioned maize uses.
+  // Paper on ink — the primary CTA on dark sections.
   primary: {
     light: "bg-ink text-paper hover:bg-blue",
-    dark: "bg-maize text-ink hover:bg-paper",
+    dark: "bg-paper text-ink hover:bg-accent hover:text-ink",
   },
   secondary: {
     light: "border-2 border-ink text-ink hover:bg-ink hover:text-paper",
@@ -29,7 +29,7 @@ const variants: Record<ButtonVariant, { light: string; dark: string }> = {
   },
   ghost: {
     light: "px-0 py-1 text-ink hover:text-blue",
-    dark: "px-0 py-1 text-paper hover:text-maize",
+    dark: "px-0 py-1 text-paper hover:text-accent",
   },
 };
 

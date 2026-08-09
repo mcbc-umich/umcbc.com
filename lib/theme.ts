@@ -28,7 +28,7 @@ function token(name: string): string {
 export const theme = {
   ink: token("ink"),
   blue: token("blue"),
-  maize: token("maize"),
+  accent: token("accent"),
   paper: token("paper"),
   fog: token("fog"),
   slate: token("slate"),

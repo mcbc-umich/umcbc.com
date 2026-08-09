@@ -9,7 +9,7 @@ export default function BulletList({ items }: { items: string[] }) {
         >
           <span
             aria-hidden="true"
-            className="bg-maize mt-3.5 h-0.5 w-6 shrink-0"
+            className="bg-accent mt-3.5 h-0.5 w-6 shrink-0"
           />
           <span>{item}</span>
         </li>

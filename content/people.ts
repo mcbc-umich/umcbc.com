@@ -31,7 +31,7 @@
 export interface Person {
   name: string;
   role: string;
-  group: "board" | "advisor" | "desk-head" | "project-manager";
+  group: "board" | "advisor" | "desk-head" | "project-manager" | "member";
   detail?: string; // "BBA 2027" or "TMT"
   linkedin?: string; // full https URL
   photo: string; // path under /public/images/people/
@@ -73,6 +73,14 @@ export const people: Person[] = [
     group: "board",
     linkedin: "https://www.linkedin.com/in/jason-moy-132371201",
     photo: "/images/people/jason-moy.webp",
+  },
+  {
+    name: "Sky Ni",
+    role: "Director of Finance",
+    group: "board",
+    linkedin: "https://www.linkedin.com/in/sky-ni",
+    // TODO [PHOTOS] — see the members note below.
+    photo: "",
   },
 
   // --- Senior advisors (§7.2) ---
@@ -237,24 +245,6 @@ export const people: Person[] = [
     linkedin: "https://www.linkedin.com/in/lily-graham-b84151320",
     photo: "/images/people/lily-graham.webp",
   },
-  // TODO [§15.4] — Alex Ye and Michael Zhang are BOTH listed as the Energy
-  // desk head on the Wix site. Confirm whether that is a genuine co-head
-  // arrangement or whether one of them runs a different sector, and fix the
-  // `detail` below. Neither has a LinkedIn URL in either source site.
-  {
-    name: "Alex Ye",
-    role: "Desk Head",
-    group: "desk-head",
-    detail: "Energy",
-    photo: "/images/people/alex-ye.webp",
-  },
-  {
-    name: "Michael Zhang",
-    role: "Desk Head",
-    group: "desk-head",
-    detail: "Energy",
-    photo: "/images/people/michael-zhang.webp",
-  },
   {
     name: "Tommy Lu",
     role: "Desk Head",
@@ -262,6 +252,109 @@ export const people: Person[] = [
     detail: "Healthcare",
     // TODO [§15.4] — LinkedIn URL missing from both source sites.
     photo: "/images/people/tommy-lu.webp",
+  },
+
+  // --- Members ------------------------------------------------------------
+  // Everyone listed on umcbc.com/our-team who is not already shown elsewhere
+  // on the site, in the order that page lists them.
+  //
+  // TODO [ROLES] — /our-team gives several of these people titles that
+  // contradict the current executive board: Jason Jiang as Co-President,
+  // Rohan Girvin as Senior Vice President, Faye Guan as VP of External,
+  // Karl Li as VP of Education, Gina Wang as VP of Strategy, Jaryl Shao as
+  // VP of Finance, and Jesse Chang / Calvin Chen as project managers. Those
+  // look like last year's board rather than this year's, so no title is
+  // asserted here. Once the board confirms who currently holds what, add a
+  // `detail` line to each — that is what shows under the name.
+  //
+  // TODO [PHOTOS] — these members and Sky Ni have headshots on
+  // umcbc.com/our-team, but Google serves them from short-lived signed URLs
+  // that cannot be downloaded outside a live browser session, so they could
+  // not be imported. Until someone saves them by hand, each card shows an
+  // initials monogram. See content/README.md for how to add one.
+  {
+    name: "Jason Jiang",
+    role: "Member",
+    group: "member",
+    linkedin: "https://www.linkedin.com/in/jiang-jason",
+    photo: "",
+  },
+  {
+    name: "Rohan Girvin",
+    role: "Member",
+    group: "member",
+    linkedin: "https://www.linkedin.com/in/rohangirvin",
+    photo: "",
+  },
+  {
+    name: "Faye Guan",
+    role: "Member",
+    group: "member",
+    linkedin: "https://www.linkedin.com/in/faye-guan",
+    photo: "",
+  },
+  {
+    name: "Karl Li",
+    role: "Member",
+    group: "member",
+    linkedin: "https://www.linkedin.com/in/karl-li-a47963255",
+    photo: "",
+  },
+  {
+    name: "Gina Wang",
+    role: "Member",
+    group: "member",
+    linkedin: "https://www.linkedin.com/in/ginaxwang",
+    photo: "",
+  },
+  {
+    name: "Jaryl Shao",
+    role: "Member",
+    group: "member",
+    linkedin: "https://www.linkedin.com/in/jaryl-shao",
+    photo: "",
+  },
+  {
+    name: "Jesse Chang",
+    role: "Member",
+    group: "member",
+    linkedin: "https://www.linkedin.com/in/jesse-chang23",
+    photo: "",
+  },
+  {
+    name: "Calvin Chen",
+    role: "Member",
+    group: "member",
+    linkedin: "https://www.linkedin.com/in/chencx",
+    photo: "",
+  },
+  {
+    name: "Mark Hong",
+    role: "Member",
+    group: "member",
+    linkedin: "https://www.linkedin.com/in/markhongat",
+    photo: "",
+  },
+  {
+    name: "Christopher Louie",
+    role: "Member",
+    group: "member",
+    linkedin: "https://www.linkedin.com/in/thechristopherlouie",
+    photo: "",
+  },
+  {
+    name: "Kin Wong",
+    role: "Member",
+    group: "member",
+    linkedin: "https://www.linkedin.com/in/kinheiwong",
+    photo: "",
+  },
+  {
+    name: "Seraphina Ng",
+    role: "Member",
+    group: "member",
+    linkedin: "https://www.linkedin.com/in/seraphinang",
+    photo: "",
   },
 ];
 
@@ -272,3 +365,4 @@ export const deskHeads = people.filter((p) => p.group === "desk-head");
 export const projectManagers = people.filter(
   (p) => p.group === "project-manager",
 );
+export const members = people.filter((p) => p.group === "member");

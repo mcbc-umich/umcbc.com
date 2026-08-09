@@ -8,14 +8,23 @@
    ========================================================================== */
 
 @theme {
-  /* --- 5.1 Colour ------------------------------------------------------- */
-  --color-ink: #0a1e33; /* primary dark — headers, dark sections, body text */
-  --color-blue: #00274c; /* Michigan Blue — accents and gradients */
-  --color-maize: #ffcb05; /* Michigan Maize — use sparingly, see §5.1 */
+  /* --- 5.1 Colour -------------------------------------------------------
+     Taken from the Wix mockup, sampled off its rendered pages. It is a blue
+     and white palette with no accent hue at all, so the Michigan Maize the
+     spec called for (§5.1) is gone entirely — the club is not licensed to
+     use it. Its four jobs (eyebrow rules, nav underline, stat numerals,
+     primary CTA on dark) are now done by --color-accent and --color-paper.
+
+     Contrast, all AA or better:
+       slate on paper 7.1:1   slate on fog 5.4:1   accent on ink 5.1:1
+       paper on ink  16.9:1   ink on fog  12.6:1 */
+  --color-ink: #0d1b2a; /* darkest navy — dark sections, headings, body text */
+  --color-blue: #1b263b; /* secondary navy — hovers, deeper fills */
+  --color-accent: #778da9; /* the one accent: rules, underlines, numerals */
   --color-paper: #ffffff;
-  --color-fog: #f4f5f7; /* alternating section background */
-  --color-slate: #5b6674; /* secondary text, captions — 5.26:1 on fog, AA pass */
-  --color-rule: #e2e5ea; /* hairlines, card borders */
+  --color-fog: #e0e1dd; /* platinum — alternating section background */
+  --color-slate: #415a77; /* secondary text, captions */
+  --color-rule: #c7cbc4; /* hairlines, card borders */
 
   /* --- 5.2 Typography ---------------------------------------------------
      Matched to the Wix mockup, which sets Georgia for headings and prose and
@@ -101,11 +110,12 @@
     text-wrap: pretty;
   }
 
-  /* §11 — visible focus ring on every interactive element. The maize ring is
-     paired with an ink halo so it stays visible on light backgrounds too;
-     maize alone on paper is ~1.4:1. */
+  /* §11 — visible focus ring on every interactive element. The accent ring is
+     paired with an ink halo so it reads on light and dark surfaces alike;
+     accent alone on paper is 3.4:1, fine for a focus indicator but the halo
+     makes it unmistakable. */
   :focus-visible {
-    outline: 2px solid var(--color-maize);
+    outline: 2px solid var(--color-accent);
     outline-offset: 2px;
     box-shadow: 0 0 0 4px var(--color-ink);
     border-radius: 2px;

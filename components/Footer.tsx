@@ -29,7 +29,7 @@ export default function Footer() {
               {footer.contactPrefix}{" "}
               <a
                 href={`mailto:${site.email}`}
-                className="text-paper hover:text-maize underline underline-offset-4"
+                className="text-paper hover:text-accent underline underline-offset-4"
               >
                 {site.email}
               </a>
@@ -44,7 +44,7 @@ export default function Footer() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="font-ui text-eyebrow hover:text-maize uppercase"
+                      className="font-ui text-eyebrow hover:text-accent uppercase"
                     >
                       {item.label}
                     </Link>
@@ -62,7 +62,7 @@ export default function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.label}
-                      className="border-paper/50 hover:border-maize hover:text-maize flex size-11 items-center justify-center border transition-colors duration-200 motion-reduce:transition-none"
+                      className="border-paper/50 hover:border-accent hover:text-accent flex size-11 items-center justify-center border transition-colors duration-200 motion-reduce:transition-none"
                     >
                       <SocialIcon
                         platform={social.platform}

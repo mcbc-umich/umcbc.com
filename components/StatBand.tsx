@@ -68,7 +68,7 @@ export default function StatBand({ stats }: StatBandProps) {
                 digit by digit; the final value is read out with the label. */}
             <p
               aria-hidden="true"
-              className="text-maize text-stat [font-variant-numeric:tabular-nums]"
+              className="text-accent text-stat [font-variant-numeric:tabular-nums]"
             >
               {stat.prefix}
               {Math.round(stat.value * progress)}

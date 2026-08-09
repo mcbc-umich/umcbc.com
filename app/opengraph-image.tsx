@@ -27,7 +27,7 @@ export default function OpengraphImage() {
       }}
     >
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <div style={{ width: 96, height: 8, backgroundColor: theme.maize }} />
+        <div style={{ width: 96, height: 8, backgroundColor: theme.accent }} />
         <div
           style={{
             marginTop: 40,
