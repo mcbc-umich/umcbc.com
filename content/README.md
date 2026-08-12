@@ -157,12 +157,13 @@ an actual logo instead, upload a file with a **transparent** background to
 
 The width and height must be the real pixel size of the file.
 
-Marks are shown white on the dark band and reveal their real colours when you
-hover — but only for logos that stay readable on a dark background. If yours
-is, add `colorOnHover: true` to its line. If it is black or dark navy, leave
-it off, or hovering will make it vanish. Read the note at the top of
-`firms.ts` first — there is also a judgement call about showing company logos
-at all.
+Marks show white on the dark band and reveal their real colours on hover. For
+that to work the file has to be prepared for a dark background — dark areas
+lifted to white, coloured areas brightened — which is why Deloitte is stored
+as white type with a green dot. A raw logo dropped straight in will look fine
+at rest but may vanish on hover, so ask for it to be run through the same
+treatment. Read the note at the top of `firms.ts` first — there is also a
+judgement call about showing company logos at all.
 
 ### Add or change a menu item
 

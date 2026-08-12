@@ -19,18 +19,18 @@
  * avoid. The marquee renders logos greyscale at rest and in full colour on
  * hover, so a single-colour or dark mark works best.
  *
- * ─── colorOnHover ──────────────────────────────────────────────────────────
- * The marquee sits on ink and flattens every mark to white so a mixed set
- * reads as one wall. On hover it can restore the real brand colours, but
- * only where those colours survive a dark background. Each logo was measured
- * for the share of its pixels that clear a readable contrast against ink:
- * the eight above 90% carry colorOnHover, the rest do not. Deloitte, PwC,
- * Mizuho and Bank of America are the instructive failures — their wordmarks
- * are black or dark navy and disappear entirely, leaving a floating green
- * dot or a red swoosh.
+ * ─── WHY THE FILES LOOK ODD IN A PREVIEW ───────────────────────────────────
+ * Every file here has been pre-processed for a dark background: dark and
+ * near-grey areas lifted to white, coloured areas brightened with their hue
+ * kept. Deloitte is white type with a green dot; Amazon is white type with an
+ * orange swoosh. Opened on a white page they look washed out — that is
+ * expected, they are only ever shown on ink.
  *
- * If you swap a logo file, re-check it: a mark that is dark on white is not
- * necessarily visible on ink.
+ * The marquee flattens everything to white at rest and drops the filter on
+ * hover, so this pre-processing is what makes hover legible. If you drop in a
+ * raw logo it will still work at rest but may disappear on hover: black type
+ * on a dark section is invisible. Ask for it to be run through the same
+ * treatment.
  *
  * ─── BEFORE YOU ADD LOGOS ──────────────────────────────────────────────────
  * TODO [§9] — two things to settle first.
@@ -53,13 +53,6 @@ export interface Firm {
   width?: number;
   /** Intrinsic height of the logo file in px. Required whenever `logo` is set. */
   height?: number;
-  /**
-   * Reveal the mark in its own colours on hover instead of just brightening
-   * the white. Only set this where the real logo is legible on ink — a black
-   * or dark-navy wordmark simply disappears against the section behind it.
-   * Measured, not guessed: see the note at the top of this file.
-   */
-  colorOnHover?: boolean;
 }
 
 /** Homepage — Industry Connections. Order is shuffled per page load. */
@@ -75,7 +68,6 @@ export const homeFirms: Firm[] = [
     logo: "/images/firms/bain.webp",
     width: 360,
     height: 40,
-    colorOnHover: true,
   },
   {
     name: "Goldman Sachs",
@@ -106,7 +98,6 @@ export const homeFirms: Firm[] = [
     logo: "/images/firms/pjt-partners.webp",
     width: 116,
     height: 96,
-    colorOnHover: true,
   },
   { name: "Lazard", logo: "/images/firms/lazard.webp", width: 360, height: 90 },
   {
@@ -115,21 +106,9 @@ export const homeFirms: Firm[] = [
     width: 360,
     height: 36,
   },
-  {
-    name: "Google",
-    logo: "/images/firms/google.webp",
-    width: 284,
-    height: 96,
-    colorOnHover: true,
-  },
+  { name: "Google", logo: "/images/firms/google.webp", width: 284, height: 96 },
   { name: "Amazon", logo: "/images/firms/amazon.webp", width: 318, height: 96 },
-  {
-    name: "Stripe",
-    logo: "/images/firms/stripe.webp",
-    width: 231,
-    height: 96,
-    colorOnHover: true,
-  },
+  { name: "Stripe", logo: "/images/firms/stripe.webp", width: 231, height: 96 },
   { name: "SpaceX", logo: "/images/firms/spacex.webp", width: 360, height: 45 },
   {
     name: "Databricks",
@@ -142,7 +121,6 @@ export const homeFirms: Firm[] = [
     logo: "/images/firms/oliver-wyman.webp",
     width: 360,
     height: 34,
-    colorOnHover: true,
   },
   {
     name: "EY-Parthenon",
@@ -190,14 +168,12 @@ export const strategyFirms: Firm[] = [
     logo: "/images/firms/bain.webp",
     width: 360,
     height: 40,
-    colorOnHover: true,
   },
   {
     name: "Oliver Wyman",
     logo: "/images/firms/oliver-wyman.webp",
     width: 360,
     height: 34,
-    colorOnHover: true,
   },
   {
     name: "EY-Parthenon",
@@ -205,7 +181,7 @@ export const strategyFirms: Firm[] = [
     width: 298,
     height: 96,
   },
-  { name: "PwC", logo: "/images/firms/pwc.webp", width: 126, height: 96 },
+  { name: "PwC", logo: "/images/firms/pwc.webp", width: 127, height: 96 },
   {
     name: "Strategy&",
     logo: "/images/firms/strategyand.webp",
@@ -230,7 +206,6 @@ export const strategyFirms: Firm[] = [
     logo: "/images/firms/kaufman-hall.webp",
     width: 360,
     height: 91,
-    colorOnHover: true,
   },
   {
     name: "West Monroe",
@@ -243,7 +218,6 @@ export const strategyFirms: Firm[] = [
     logo: "/images/firms/arthur-d-little.webp",
     width: 360,
     height: 39,
-    colorOnHover: true,
   },
 ];
 
@@ -254,7 +228,6 @@ export const financeFirms: Firm[] = [
     logo: "/images/firms/pjt-partners.webp",
     width: 116,
     height: 96,
-    colorOnHover: true,
   },
   { name: "Lazard", logo: "/images/firms/lazard.webp", width: 360, height: 90 },
   {
@@ -311,7 +284,6 @@ export const financeFirms: Firm[] = [
     logo: "/images/firms/ctc.webp",
     width: 360,
     height: 93,
-    colorOnHover: true,
   },
   {
     name: "Macquarie Group",

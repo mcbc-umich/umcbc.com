@@ -98,18 +98,15 @@ export default function LogoMarquee({
                       // flatten the transparency and put a box behind the
                       // mark.
                       unoptimized
-                      // brightness(0) invert(1) turns every opaque pixel white
-                      // while leaving transparency alone. Dropping the filter
-                      // on hover restores the real brand colours, but only
-                      // for marks that stay legible on ink — a black or
-                      // dark-navy wordmark just vanishes, so those brighten
-                      // instead. Both class strings are written out in full
-                      // so Tailwind can see them.
-                      className={
-                        firm.colorOnHover
-                          ? "h-12 w-auto max-w-[180px] object-contain opacity-60 [filter:brightness(0)_invert(1)] transition duration-300 hover:opacity-100 hover:[filter:none] motion-reduce:transition-none"
-                          : "h-12 w-auto max-w-[180px] object-contain opacity-60 [filter:brightness(0)_invert(1)] transition-opacity duration-300 hover:opacity-100 motion-reduce:transition-none"
-                      }
+                      // At rest, brightness(0) invert(1) flattens every opaque
+                      // pixel to white so a mixed set reads as one wall.
+                      // Hover drops the filter and the file's own colours come
+                      // through. Every logo in public/images/firms/ has already
+                      // had its dark areas lifted to white and its coloured
+                      // areas brightened, so this is safe for all of them —
+                      // Deloitte arrives as white type with a green dot rather
+                      // than black type that would vanish here.
+                      className="h-12 w-auto max-w-[180px] object-contain opacity-60 [filter:brightness(0)_invert(1)] transition duration-300 hover:opacity-100 hover:[filter:none] motion-reduce:transition-none"
                     />
                   ) : (
                     // Firms with no usable logo file, set to match the marks.
