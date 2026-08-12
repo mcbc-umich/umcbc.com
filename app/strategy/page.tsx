@@ -92,6 +92,7 @@ export default function StrategyPage() {
         heading={strategy.cta.heading}
         label={strategy.cta.label}
         href={strategy.cta.href}
+        image={strategy.cta.image}
       />
     </>
   );

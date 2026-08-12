@@ -102,6 +102,7 @@ export default function HomePage() {
         heading={home.closing.heading}
         label={home.closing.cta.label}
         href={home.closing.cta.href}
+        image={home.closing.image}
       />
     </>
   );

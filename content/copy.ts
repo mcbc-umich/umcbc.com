@@ -108,6 +108,7 @@ export const home = {
   closing: {
     heading: "Learn. Grow. Inspire.",
     cta: { label: "Apply Today", href: "/recruitment" },
+    image: "/images/cta/home.webp",
   },
 };
 
@@ -226,6 +227,7 @@ export const strategy = {
     heading: "Ready to apply?",
     label: "Apply Today",
     href: "/recruitment",
+    image: "/images/cta/strategy.webp",
   },
 
   photoStrip: [
@@ -272,6 +274,7 @@ export const finance = {
     heading: "Ready to apply?",
     label: "Apply Today",
     href: "/recruitment",
+    image: "/images/cta/finance.webp",
   },
 
   photoStrip: [

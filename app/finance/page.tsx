@@ -111,6 +111,7 @@ export default function FinancePage() {
         heading={finance.cta.heading}
         label={finance.cta.label}
         href={finance.cta.href}
+        image={finance.cta.image}
       />
     </>
   );
