@@ -17,7 +17,9 @@ export interface LogoMarqueeProps {
 
 /**
  * The signature element (§5.5): a continuously scrolling track of firm marks
- * on ink, flattened to white and brightening on hover.
+ * on ink, flattened to white; hover reveals the real brand colours where they
+ * stay legible against the section, and brightens the white where they would
+ * not.
  *
  * Pure CSS for the motion — the animation, the hover behaviour and the
  * reduced-motion fallback all live in globals.css. The optional shuffle is a
@@ -97,13 +99,17 @@ export default function LogoMarquee({
                       // mark.
                       unoptimized
                       // brightness(0) invert(1) turns every opaque pixel white
-                      // while leaving transparency alone. Hover brightens the
-                      // white rather than restoring brand colour: most of
-                      // these marks are black, so true colour on ink made them
-                      // disappear. Only line-art survives the flattening,
-                      // which is why a few firms are wordmarks instead —
-                      // see content/firms.ts.
-                      className="h-12 w-auto max-w-[180px] object-contain opacity-60 [filter:brightness(0)_invert(1)] transition-opacity duration-300 hover:opacity-100 motion-reduce:transition-none"
+                      // while leaving transparency alone. Dropping the filter
+                      // on hover restores the real brand colours, but only
+                      // for marks that stay legible on ink — a black or
+                      // dark-navy wordmark just vanishes, so those brighten
+                      // instead. Both class strings are written out in full
+                      // so Tailwind can see them.
+                      className={
+                        firm.colorOnHover
+                          ? "h-12 w-auto max-w-[180px] object-contain opacity-60 [filter:brightness(0)_invert(1)] transition duration-300 hover:opacity-100 hover:[filter:none] motion-reduce:transition-none"
+                          : "h-12 w-auto max-w-[180px] object-contain opacity-60 [filter:brightness(0)_invert(1)] transition-opacity duration-300 hover:opacity-100 motion-reduce:transition-none"
+                      }
                     />
                   ) : (
                     // Firms with no usable logo file, set to match the marks.

@@ -155,9 +155,14 @@ an actual logo instead, upload a file with a **transparent** background to
 { name: "Lazard", logo: "/images/firms/lazard.webp", width: 320, height: 84 },
 ```
 
-The width and height must be the real pixel size of the file. Read the note at
-the top of `firms.ts` first — there is a judgement call about showing company
-logos at all.
+The width and height must be the real pixel size of the file.
+
+Marks are shown white on the dark band and reveal their real colours when you
+hover — but only for logos that stay readable on a dark background. If yours
+is, add `colorOnHover: true` to its line. If it is black or dark navy, leave
+it off, or hovering will make it vanish. Read the note at the top of
+`firms.ts` first — there is also a judgement call about showing company logos
+at all.
 
 ### Add or change a menu item
 

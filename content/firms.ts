@@ -19,6 +19,19 @@
  * avoid. The marquee renders logos greyscale at rest and in full colour on
  * hover, so a single-colour or dark mark works best.
  *
+ * ─── colorOnHover ──────────────────────────────────────────────────────────
+ * The marquee sits on ink and flattens every mark to white so a mixed set
+ * reads as one wall. On hover it can restore the real brand colours, but
+ * only where those colours survive a dark background. Each logo was measured
+ * for the share of its pixels that clear a readable contrast against ink:
+ * the eight above 90% carry colorOnHover, the rest do not. Deloitte, PwC,
+ * Mizuho and Bank of America are the instructive failures — their wordmarks
+ * are black or dark navy and disappear entirely, leaving a floating green
+ * dot or a red swoosh.
+ *
+ * If you swap a logo file, re-check it: a mark that is dark on white is not
+ * necessarily visible on ink.
+ *
  * ─── BEFORE YOU ADD LOGOS ──────────────────────────────────────────────────
  * TODO [§9] — two things to settle first.
  *
@@ -40,6 +53,13 @@ export interface Firm {
   width?: number;
   /** Intrinsic height of the logo file in px. Required whenever `logo` is set. */
   height?: number;
+  /**
+   * Reveal the mark in its own colours on hover instead of just brightening
+   * the white. Only set this where the real logo is legible on ink — a black
+   * or dark-navy wordmark simply disappears against the section behind it.
+   * Measured, not guessed: see the note at the top of this file.
+   */
+  colorOnHover?: boolean;
 }
 
 /** Homepage — Industry Connections. Order is shuffled per page load. */
@@ -55,6 +75,7 @@ export const homeFirms: Firm[] = [
     logo: "/images/firms/bain.webp",
     width: 360,
     height: 40,
+    colorOnHover: true,
   },
   {
     name: "Goldman Sachs",
@@ -85,6 +106,7 @@ export const homeFirms: Firm[] = [
     logo: "/images/firms/pjt-partners.webp",
     width: 116,
     height: 96,
+    colorOnHover: true,
   },
   { name: "Lazard", logo: "/images/firms/lazard.webp", width: 360, height: 90 },
   {
@@ -93,9 +115,21 @@ export const homeFirms: Firm[] = [
     width: 360,
     height: 36,
   },
-  { name: "Google", logo: "/images/firms/google.webp", width: 284, height: 96 },
+  {
+    name: "Google",
+    logo: "/images/firms/google.webp",
+    width: 284,
+    height: 96,
+    colorOnHover: true,
+  },
   { name: "Amazon", logo: "/images/firms/amazon.webp", width: 318, height: 96 },
-  { name: "Stripe", logo: "/images/firms/stripe.webp", width: 231, height: 96 },
+  {
+    name: "Stripe",
+    logo: "/images/firms/stripe.webp",
+    width: 231,
+    height: 96,
+    colorOnHover: true,
+  },
   { name: "SpaceX", logo: "/images/firms/spacex.webp", width: 360, height: 45 },
   {
     name: "Databricks",
@@ -108,6 +142,7 @@ export const homeFirms: Firm[] = [
     logo: "/images/firms/oliver-wyman.webp",
     width: 360,
     height: 34,
+    colorOnHover: true,
   },
   {
     name: "EY-Parthenon",
@@ -155,12 +190,14 @@ export const strategyFirms: Firm[] = [
     logo: "/images/firms/bain.webp",
     width: 360,
     height: 40,
+    colorOnHover: true,
   },
   {
     name: "Oliver Wyman",
     logo: "/images/firms/oliver-wyman.webp",
     width: 360,
     height: 34,
+    colorOnHover: true,
   },
   {
     name: "EY-Parthenon",
@@ -193,6 +230,7 @@ export const strategyFirms: Firm[] = [
     logo: "/images/firms/kaufman-hall.webp",
     width: 360,
     height: 91,
+    colorOnHover: true,
   },
   {
     name: "West Monroe",
@@ -205,6 +243,7 @@ export const strategyFirms: Firm[] = [
     logo: "/images/firms/arthur-d-little.webp",
     width: 360,
     height: 39,
+    colorOnHover: true,
   },
 ];
 
@@ -215,6 +254,7 @@ export const financeFirms: Firm[] = [
     logo: "/images/firms/pjt-partners.webp",
     width: 116,
     height: 96,
+    colorOnHover: true,
   },
   { name: "Lazard", logo: "/images/firms/lazard.webp", width: 360, height: 90 },
   {
@@ -271,6 +311,7 @@ export const financeFirms: Firm[] = [
     logo: "/images/firms/ctc.webp",
     width: 360,
     height: 93,
+    colorOnHover: true,
   },
   {
     name: "Macquarie Group",
