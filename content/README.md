@@ -101,12 +101,16 @@ Delete the whole block from `{` to `},`.
 3. In `people.ts`, set their photo line to:
    `photo: "/images/people/jane-chen.jpg",`
 
-Leaving `photo: ""` is fine — the card shows their initials instead. Everyone
-in the Members group, plus Sky Ni and Renzo Silva, is set that way today: their
-headshots are on the old Google Site but Google serves them from short-lived
-signed links that cannot be downloaded automatically. To fix one, open
-umcbc.com/our-team, right-click the photo, **Save image as**, then follow the
-three steps above.
+Leaving `photo: ""` is fine — the card shows their initials instead. Fourteen
+people are set that way today: Sky Ni, Renzo Silva and everyone in the Members
+group.
+
+Their headshots do exist, on umcbc.com/our-team, but they could not be copied
+across automatically: Google serves Sites images from short-lived signed links
+that refuse any request from outside a live browser, and LinkedIn blocks
+automated requests outright. Saving them by hand takes a couple of minutes:
+open umcbc.com/our-team, right-click a photo, **Save image as**, then follow
+the three steps above.
 
 ### Change a paragraph
 

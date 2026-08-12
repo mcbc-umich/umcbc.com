@@ -17,7 +17,7 @@ export interface LogoMarqueeProps {
 
 /**
  * The signature element (§5.5): a continuously scrolling track of firm marks
- * on ink, flattened to white at rest and resolving to full colour on hover.
+ * on ink, flattened to white and brightening on hover.
  *
  * Pure CSS for the motion — the animation, the hover behaviour and the
  * reduced-motion fallback all live in globals.css. The optional shuffle is a
@@ -97,16 +97,17 @@ export default function LogoMarquee({
                       // mark.
                       unoptimized
                       // brightness(0) invert(1) turns every opaque pixel white
-                      // while leaving transparency alone; dropping the filter
-                      // on hover restores the true brand colours. Only marks
-                      // that are pure line-art survive this, which is why the
-                      // few logos built from filled shapes are wordmarks
-                      // instead — see content/firms.ts.
-                      className="h-12 w-auto max-w-[180px] object-contain opacity-75 [filter:brightness(0)_invert(1)] transition duration-300 hover:opacity-100 hover:[filter:none] motion-reduce:transition-none"
+                      // while leaving transparency alone. Hover brightens the
+                      // white rather than restoring brand colour: most of
+                      // these marks are black, so true colour on ink made them
+                      // disappear. Only line-art survives the flattening,
+                      // which is why a few firms are wordmarks instead —
+                      // see content/firms.ts.
+                      className="h-12 w-auto max-w-[180px] object-contain opacity-60 [filter:brightness(0)_invert(1)] transition-opacity duration-300 hover:opacity-100 motion-reduce:transition-none"
                     />
                   ) : (
                     // Firms with no usable logo file, set to match the marks.
-                    <span className="text-paper/75 font-ui hover:text-paper text-lg font-semibold tracking-wide whitespace-nowrap transition-colors duration-300 motion-reduce:transition-none">
+                    <span className="text-paper/60 font-ui hover:text-paper text-lg font-semibold tracking-wide whitespace-nowrap transition-colors duration-300 motion-reduce:transition-none">
                       {firm.name}
                     </span>
                   )}
