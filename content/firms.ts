@@ -42,7 +42,7 @@ export interface Firm {
   height?: number;
 }
 
-/** Homepage — Industry Connections. */
+/** Homepage — Industry Connections. Order is shuffled per page load. */
 export const homeFirms: Firm[] = [
   {
     name: "McKinsey & Company",
@@ -168,7 +168,13 @@ export const strategyFirms: Firm[] = [
     width: 298,
     height: 96,
   },
-  { name: "PwC Strategy&" },
+  { name: "PwC", logo: "/images/firms/pwc.webp", width: 126, height: 96 },
+  {
+    name: "Strategy&",
+    logo: "/images/firms/strategyand.webp",
+    width: 360,
+    height: 78,
+  },
   {
     name: "Deloitte",
     logo: "/images/firms/deloitte.webp",
@@ -273,25 +279,10 @@ export const financeFirms: Firm[] = [
     height: 63,
   },
   { name: "PSG", logo: "/images/firms/psg.webp", width: 260, height: 96 },
-  {
-    name: "GCM Grosvenor",
-    logo: "/images/firms/gcm.webp",
-    width: 360,
-    height: 78,
-  },
-  { name: "Baird", logo: "/images/firms/baird.webp", width: 104, height: 96 },
-  {
-    name: "RBC Capital Markets",
-    logo: "/images/firms/rbc.webp",
-    width: 211,
-    height: 96,
-  },
-  {
-    name: "BMO Capital Markets",
-    logo: "/images/firms/bmo.webp",
-    width: 276,
-    height: 96,
-  },
+  { name: "GCM Grosvenor" },
+  { name: "Baird" },
+  { name: "RBC Capital Markets" },
+  { name: "BMO Capital Markets" },
   { name: "Mizuho", logo: "/images/firms/mizuho.webp", width: 320, height: 96 },
   {
     name: "Federal Reserve Bank of New York",

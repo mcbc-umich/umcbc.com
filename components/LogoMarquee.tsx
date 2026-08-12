@@ -11,23 +11,23 @@ export interface LogoMarqueeProps {
    * round. Without it, hover just pauses the scroll.
    */
   expandOnHover?: boolean;
+  /** Re-order the marks on every page load. See the note below. */
+  shuffle?: boolean;
 }
 
 /**
- * The signature element (§5.5): a continuously scrolling track of firm marks,
- * greyscale at rest and resolving to full colour on hover.
+ * The signature element (§5.5): a continuously scrolling track of firm marks
+ * on ink, flattened to white at rest and resolving to full colour on hover.
  *
- * The marks sit on a white band. They are real brand logos in their own
- * colours — mostly dark wordmarks — and the three sections that host this
- * component are all ink, where dark marks would be invisible. A light band is
- * what lets them keep their actual colours instead of being flattened.
- *
- * Pure CSS: the animation, the hover behaviour and the reduced-motion
- * fallback all live in globals.css, so this ships zero JavaScript.
+ * Pure CSS for the motion — the animation, the hover behaviour and the
+ * reduced-motion fallback all live in globals.css. The optional shuffle is a
+ * few lines of inline script rather than a client component, so this still
+ * costs no hydration.
  */
 export default function LogoMarquee({
   firms,
   expandOnHover = false,
+  shuffle = false,
 }: LogoMarqueeProps) {
   if (firms.length === 0) return null;
 
@@ -40,8 +40,34 @@ export default function LogoMarquee({
       "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
   } as CSSProperties;
 
+  /**
+   * Shuffles the first track and mirrors it into the duplicate so the loop
+   * stays seamless. Deliberately runs on `load`, after React has hydrated —
+   * reordering the DOM before hydration would leave the server markup and the
+   * client tree disagreeing. The marquee is still scrolling in from the edge
+   * at that point, so the re-order is not visible.
+   */
+  const shuffleScript = `
+(function () {
+  var root = document.currentScript.previousElementSibling;
+  function run() {
+    var tracks = root.querySelectorAll('.marquee-track > ul');
+    if (tracks.length < 2) return;
+    var items = Array.prototype.slice.call(tracks[0].children);
+    for (var i = items.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = items[i]; items[i] = items[j]; items[j] = t;
+    }
+    items.forEach(function (li) { tracks[0].appendChild(li); });
+    tracks[1].innerHTML = tracks[0].innerHTML;
+  }
+  if (document.readyState === 'complete') run();
+  else window.addEventListener('load', run);
+})();
+`;
+
   return (
-    <div className="bg-paper py-10">
+    <>
       <div
         className={`marquee relative overflow-hidden ${expandOnHover ? "marquee-expand" : ""}`}
         style={style}
@@ -68,16 +94,19 @@ export default function LogoMarquee({
                       // (~10KB each), and the optimizer falls back to JPEG for
                       // any client that doesn't advertise WebP — which would
                       // flatten the transparency and put a box behind the
-                      // mark, the exact thing these files exist to avoid.
+                      // mark.
                       unoptimized
-                      // Contained rather than height-matched: marks range from
-                      // near-square to very wide, so capping both axes keeps
-                      // them optically similar.
-                      className="h-12 w-auto max-w-[180px] object-contain opacity-80 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 motion-reduce:transition-none"
+                      // brightness(0) invert(1) turns every opaque pixel white
+                      // while leaving transparency alone; dropping the filter
+                      // on hover restores the true brand colours. Only marks
+                      // that are pure line-art survive this, which is why the
+                      // few logos built from filled shapes are wordmarks
+                      // instead — see content/firms.ts.
+                      className="h-12 w-auto max-w-[180px] object-contain opacity-75 [filter:brightness(0)_invert(1)] transition duration-300 hover:opacity-100 hover:[filter:none] motion-reduce:transition-none"
                     />
                   ) : (
-                    // Firms with no logo file available, set to match.
-                    <span className="text-ink/70 font-ui hover:text-ink text-lg font-semibold tracking-wide whitespace-nowrap transition-colors duration-300 motion-reduce:transition-none">
+                    // Firms with no usable logo file, set to match the marks.
+                    <span className="text-paper/75 font-ui hover:text-paper text-lg font-semibold tracking-wide whitespace-nowrap transition-colors duration-300 motion-reduce:transition-none">
                       {firm.name}
                     </span>
                   )}
@@ -87,6 +116,9 @@ export default function LogoMarquee({
           ))}
         </div>
       </div>
-    </div>
+      {shuffle ? (
+        <script dangerouslySetInnerHTML={{ __html: shuffleScript }} />
+      ) : null}
+    </>
   );
 }

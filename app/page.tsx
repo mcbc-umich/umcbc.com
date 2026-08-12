@@ -87,7 +87,7 @@ export default function HomePage() {
         </Container>
 
         <div className="mt-16">
-          <LogoMarquee firms={homeFirms} />
+          <LogoMarquee firms={homeFirms} shuffle />
         </div>
 
         <Container>
