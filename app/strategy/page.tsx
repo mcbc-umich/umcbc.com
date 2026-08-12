@@ -10,7 +10,7 @@ import PhotoStrip from "@/components/PhotoStrip";
 import Section, { Container } from "@/components/Section";
 import { strategy } from "@/content/copy";
 import { applyIfYouLike, engagements } from "@/content/engagements";
-import { firms } from "@/content/firms";
+import { strategyFirms } from "@/content/firms";
 import { projectManagers } from "@/content/people";
 
 export const metadata: Metadata = {
@@ -77,7 +77,7 @@ export default function StrategyPage() {
         </Container>
 
         <div className="mt-16">
-          <LogoMarquee firms={firms} />
+          <LogoMarquee firms={strategyFirms} expandOnHover />
         </div>
 
         <Container>

@@ -9,7 +9,7 @@ import PathCard from "@/components/PathCard";
 import Section, { Container } from "@/components/Section";
 import StatBand from "@/components/StatBand";
 import { home } from "@/content/copy";
-import { firms } from "@/content/firms";
+import { homeFirms } from "@/content/firms";
 import { site } from "@/content/site";
 import { stats } from "@/content/stats";
 
@@ -87,7 +87,7 @@ export default function HomePage() {
         </Container>
 
         <div className="mt-16">
-          <LogoMarquee firms={firms} />
+          <LogoMarquee firms={homeFirms} />
         </div>
 
         <Container>

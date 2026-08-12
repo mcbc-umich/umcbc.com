@@ -11,7 +11,7 @@ import SectorCard from "@/components/SectorCard";
 import Section, { Container } from "@/components/Section";
 import { finance } from "@/content/copy";
 import { applyIfYouLike, engagements } from "@/content/engagements";
-import { firms } from "@/content/firms";
+import { financeFirms } from "@/content/firms";
 import { deskHeads } from "@/content/people";
 import { sectors } from "@/content/sectors";
 
@@ -96,7 +96,7 @@ export default function FinancePage() {
         </Container>
 
         <div className="mt-16">
-          <LogoMarquee firms={firms} />
+          <LogoMarquee firms={financeFirms} expandOnHover />
         </div>
 
         <Container>

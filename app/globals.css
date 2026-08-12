@@ -178,6 +178,40 @@
   animation-play-state: paused;
 }
 
+/* Hover-to-expand: the track stops and opens into a static grid so the whole
+   list can be read at once. Same end state as the reduced-motion fallback
+   below, just triggered by pointer or keyboard instead. */
+.marquee-expand:hover,
+.marquee-expand:focus-within {
+  /* The edge fade only makes sense while things are moving past it. */
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+}
+
+.marquee-expand:hover .marquee-track,
+.marquee-expand:focus-within .marquee-track {
+  animation: none;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.marquee-expand:hover .marquee-track > *,
+.marquee-expand:focus-within .marquee-track > * {
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  padding-right: 0;
+  row-gap: 1.75rem;
+}
+
+/* The duplicate track is decorative; hiding it stops the grid listing
+   everything twice. */
+.marquee-expand:hover .marquee-track [data-marquee-clone],
+.marquee-expand:focus-within .marquee-track [data-marquee-clone] {
+  display: none;
+}
+
 /* 3. Stat count-up is driven by StatBand.tsx and guarded there. */
 
 /* Native <details> disclosure marker removal for the FAQ accordion (§6). */

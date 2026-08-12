@@ -29,7 +29,7 @@ what it _says_. You almost never need the first kind.
 | `sectors.ts`     | The seven Finance investment sectors                                        |
 | `engagements.ts` | "Past Engagements" and "Apply if you like…" bullet lists                    |
 | `faqs.ts`        | The recruitment questions and answers                                       |
-| `firms.ts`       | The scrolling firm names on the homepage                                    |
+| `firms.ts`       | The three scrolling placement lists (home, strategy, finance)               |
 
 ---
 
@@ -134,12 +134,26 @@ or `suffix` (after).
 Open `site.ts`. The email appears in one place and is used everywhere
 automatically. Same for the two Google Form links under `forms`.
 
-### Add a firm to the homepage scroller
+### Add a firm to a scrolling placement list
 
-Open `firms.ts` and add a line: `{ name: "Firm Name" },`
+Open `firms.ts`. There are three separate lists — `homeFirms`, `strategyFirms`
+and `financeFirms` — one per page. Add a line to the one you want:
 
-Read the note at the top of that file first — there is a judgement call about
-whether to show a firm's logo at all.
+```ts
+{ name: "Firm Name" },
+```
+
+That renders the name as text, which is why there is no box behind it. To use
+an actual logo instead, upload a file with a **transparent** background to
+`public/images/firms/` and write:
+
+```ts
+{ name: "Lazard", logo: "/images/firms/lazard.webp", width: 320, height: 84 },
+```
+
+The width and height must be the real pixel size of the file. Read the note at
+the top of `firms.ts` first — there is a judgement call about showing company
+logos at all.
 
 ### Add or change a menu item
 
