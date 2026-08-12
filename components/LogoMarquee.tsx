@@ -60,13 +60,27 @@ export default function LogoMarquee({
                     width={firm.width}
                     height={firm.height}
                     sizes="180px"
+                    // Served as-is. These are already sized for their slot
+                    // (~10KB each), and the optimizer falls back to JPEG for
+                    // any client that doesn't advertise WebP — which would
+                    // flatten the transparency and put a box behind the mark,
+                    // the exact thing these files exist to avoid.
+                    unoptimized
                     // Contained rather than height-matched: marks range from
                     // near-square to very wide, so capping both axes keeps
                     // them optically similar.
-                    className="h-12 w-auto max-w-[180px] object-contain opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 motion-reduce:transition-none"
+                    //
+                    // brightness(0) invert(1) flattens every opaque pixel to
+                    // white while leaving transparency alone. All three
+                    // marquees sit on ink, and most of these marks are black
+                    // wordmarks that would otherwise be invisible on it; the
+                    // filter also makes a mixed set read as one wall rather
+                    // than a jumble of brand colours.
+                    className="h-12 w-auto max-w-[180px] object-contain opacity-75 [filter:brightness(0)_invert(1)] transition-opacity duration-300 hover:opacity-100 motion-reduce:transition-none"
                   />
                 ) : (
-                  <span className="text-accent font-ui hover:text-paper text-lg font-semibold tracking-wide whitespace-nowrap transition-colors duration-300 motion-reduce:transition-none">
+                  // Firms with no logo file available, set to match the marks.
+                  <span className="text-paper/75 font-ui hover:text-paper text-lg font-semibold tracking-wide whitespace-nowrap transition-colors duration-300 motion-reduce:transition-none">
                     {firm.name}
                   </span>
                 )}
