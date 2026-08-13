@@ -15,6 +15,11 @@
  * more embarrassing than misspelling it. Ten minutes with the live mockup
  * side by side clears it.
  *
+ * One error has already been found and fixed this way: Ascher Bustos and
+ * Rayhan Zahin had each other's photo. The files were swapped rather than the
+ * paths, so every filename still matches the person in it. Worth assuming
+ * there are others.
+ *
  * Renzo Silva has no photo because the mockup uses one image — "mcbc.jpg" —
  * for both him and Daniel Xiao. It is a photo of one specific person, so it
  * cannot be right for both. It is assigned to Daniel here, since on the About
